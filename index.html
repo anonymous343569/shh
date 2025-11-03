@@ -1,482 +1,414 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday, My Cutie!</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Open+Sans:wght@300;400;700&family=Pacifico&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, My Cutie!</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Open+Sans:wght@300;400;700&family=Pacifico&display=swap');
 
-    body {
-      font-family: 'Open Sans', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #ffdde1, #ee9ca7);
-      color: #333;
-      text-align: center;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #ffdde1, #ee9ca7);
+    color: #333;
+    text-align: center;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    padding: 30px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+header {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+header h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4em;
+    color: #832a37;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+header p {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5em;
+    color: #4a4a4a;
+    margin-top: 10px;
+    position: relative;
+    z-index: 2;
+}
 
-    .container {
-      max-width: 900px;
-      margin: 20px auto;
-      background-color: #fff;
-      border-radius: 20px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-      padding: 30px;
-      box-sizing: border-box;
-      position: relative;
-      overflow: hidden;
-    }
+/* Confetti animation */
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #fce4ec;
+    opacity: 0;
+    animation: confetti-fall 3s ease-out forwards;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 5;
+}
+@keyframes confetti-fall {
+    0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
 
-    header {
-      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%);
-      padding: 25px;
-      border-radius: 15px;
-      margin-bottom: 40px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
+/* Hero Image */
+.hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 70%;
+    margin-bottom: 40px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: 0.5s;
+}
+.hero-image {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(20%) contrast(110%) brightness(105%);
+    transition: filter 0.5s;
+}
+.hero-image-wrapper:hover .hero-image { filter: none; }
 
-    header h1 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 4em;
-      color: #832a37;
-      margin: 0;
-      position: relative;
-      z-index: 2;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-    }
+/* Message Section */
+.message-section { text-align: left; margin-bottom: 50px; }
+.message-section h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3em;
+    color: #d84a6c;
+    text-align: center;
+    margin-bottom: 25px;
+}
+.message-section p {
+    font-size: 1.2em;
+    color: #444;
+    margin-bottom: 18px;
+}
+.message-section .signature {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5em;
+    color: #d84a6c;
+    text-align: right;
+    margin-top: 30px;
+}
 
-    header p {
-      font-family: 'Pacifico', cursive;
-      font-size: 1.5em;
-      color: #4a4a4a;
-      margin-top: 10px;
-      position: relative;
-      z-index: 2;
-    }
+/* Gifts */
+.gifts-container h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3em;
+    color: #d84a6c;
+    margin-bottom: 25px;
+}
+.gifts-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.gift-item {
+    flex-basis: 150px;
+    max-width: 180px;
+    text-align: center;
+    position: relative;
+}
+.gift-box {
+    width: 100%;
+    height: 150px;
+    background-color: #ffb6c1;
+    border-radius: 15px;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+.gift-box:hover { transform: translateY(-5px) scale(1.05); }
+.gift-box-ribbon-vertical, .gift-box-ribbon-horizontal {
+    position: absolute;
+    background-color: #d84a6c;
+}
+.gift-box-ribbon-vertical { width: 30px; height: 100%; left: 50%; transform: translateX(-50%); }
+.gift-box-ribbon-horizontal { width: 100%; height: 30px; top: 50%; transform: translateY(-50%); }
+.gift-box-bow {
+    width: 60px; height: 60px; background-color: #d84a6c; border-radius: 50%;
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+}
+.gift-box-bow::before, .gift-box-bow::after {
+    content: ''; position: absolute; width: 45px; height: 45px;
+    background-color: #d84a6c; border-radius: 50%; top: 50%; left: 50%;
+}
+.gift-box-bow::before { transform: translate(-50%, -50%) rotate(-45deg); }
+.gift-box-bow::after { transform: translate(-50%, -50%) rotate(45deg); }
 
-    .confetti-piece {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background-color: #fce4ec;
-      opacity: 0;
-      animation: confetti-fall 3s ease-out forwards;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 5;
-    }
+.memory-group {
+    display: none;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 15px;
+}
+.memory-group.active { display: flex; animation: fadeInGrid 1s; }
+@keyframes fadeInGrid {
+    from {opacity:0; transform:translateY(20px);}
+    to {opacity:1; transform:translateY(0);}
+}
+.grid-img {
+    flex-basis: calc(33.33% - 10px);
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: 0.3s;
+}
+.grid-img:hover { transform: scale(1.08); border: 3px solid #ff69b4; }
 
-    @keyframes confetti-fall {
-      0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-    }
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.8);
+}
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+.close {
+    position: absolute;
+    top: 15px; right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.3s;
+    user-select: none;
+    background: rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+.prev:hover, .next:hover { background: rgba(0,0,0,0.6); }
 
-    .hero-image-wrapper {
-      position: relative;
-      width: 100%;
-      padding-bottom: 70%;
-      margin-bottom: 40px;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-      transform: scale(1);
-      transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
-      cursor: pointer;
-    }
-
-    .hero-image-wrapper:hover {
-      transform: scale(1.01);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    }
-
-    .hero-image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: grayscale(20%) contrast(110%) brightness(105%);
-      transition: filter 0.5s ease-in-out;
-    }
-
-    .hero-image-wrapper:hover .hero-image {
-      filter: grayscale(0%) contrast(100%) brightness(100%);
-    }
-
-    .message-section {
-      margin-bottom: 50px;
-      text-align: left;
-      padding: 0 15px;
-    }
-
-    .message-section h2 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 3em;
-      color: #d84a6c;
-      margin-bottom: 25px;
-      text-align: center;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.05);
-    }
-
-    .message-section p {
-      font-size: 1.2em;
-      margin-bottom: 18px;
-      color: #444;
-    }
-
-    .message-section .signature {
-      font-family: 'Pacifico', cursive;
-      font-size: 1.5em;
-      color: #d84a6c;
-      text-align: right;
-      margin-top: 30px;
-    }
-
-    .gifts-container {
-      margin-bottom: 50px;
-      padding: 0 10px;
-    }
-
-    .gifts-container h2 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 3em;
-      color: #d84a6c;
-      margin-bottom: 25px;
-      text-align: center;
-    }
-
-    .gifts-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .gift-item {
-      flex-basis: 150px;
-      flex-grow: 1;
-      max-width: 180px;
-      text-align: center;
-      position: relative;
-      min-height: 150px;
-    }
-
-    .gift-box {
-      width: 100%;
-      height: 150px;
-      background-color: #ffb6c1;
-      border-radius: 15px;
-      position: relative;
-      cursor: pointer;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease-in-out;
-    }
-
-    .gift-box:hover {
-      transform: translateY(-5px) scale(1.05);
-    }
-
-    .gift-box-ribbon-vertical, .gift-box-ribbon-horizontal {
-      position: absolute;
-      background-color: #d84a6c;
-    }
-
-    .gift-box-ribbon-vertical {
-      width: 30px;
-      height: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .gift-box-ribbon-horizontal {
-      width: 100%;
-      height: 30px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    .gift-box-bow {
-      width: 60px; height: 60px; background-color: #d84a6c; border-radius: 50%;
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); z-index: 1;
-    }
-
-    .gift-box-bow::before, .gift-box-bow::after {
-      content: ''; position: absolute; width: 45px; height: 45px;
-      background-color: #d84a6c; border-radius: 50%; top: 50%; left: 50%;
-      transform: translate(-50%, -50%) rotate(45deg); z-index: -1;
-    }
-
-    .gift-box-bow::before { transform: translate(-50%, -50%) rotate(-45deg); }
-
-    .memory-group {
-      display: none;
-      position: relative;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      border-radius: 10px;
-      animation: fadeInGrid 1s forwards;
-    }
-
-    .memory-group.active {
-      display: flex;
-    }
-
-    .slide {
-      display: none;
-      width: 100%;
-      text-align: center;
-    }
-
-    .slide.active {
-      display: block;
-    }
-
-    .grid-img {
-      max-width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      cursor: pointer;
-    }
-
-    .prev, .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      padding: 10px 16px;
-      margin-top: -22px;
-      color: white;
-      font-weight: bold;
-      font-size: 22px;
-      border: none;
-      background: rgba(0, 0, 0, 0.4);
-      border-radius: 50%;
-      user-select: none;
-      transition: 0.3s;
-    }
-
-    .prev:hover, .next:hover {
-      background: rgba(0, 0, 0, 0.7);
-    }
-
-    .prev { left: 10px; }
-    .next { right: 10px; }
-
-    @keyframes fadeInGrid {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .memories-section {
-      margin-bottom: 50px;
-    }
-
-    footer {
-      margin-top: 50px;
-      padding-top: 25px;
-      border-top: 1px dashed #f2b7b7;
-      color: #a0a0a0;
-      font-size: 1em;
-      font-family: 'Dancing Script', cursive;
-    }
-
-    .caption { font-size: 0.85em; color: #888; margin-top: 5px; margin-bottom: 10px; }
-  </style>
+footer {
+    margin-top: 50px;
+    padding-top: 25px;
+    border-top: 1px dashed #f2b7b7;
+    color: #a0a0a0;
+    font-family: 'Dancing Script', cursive;
+}
+.caption { font-size: 0.85em; color: #888; margin-bottom: 10px; }
+</style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Happpppy Birthday, My Cutu Piliya 🤭!</h1>
-      <p>The most wonderful girl in the whole wide world, and only mineeee!</p>
-      <div id="confetti-container"></div>
-    </header>
+<div class="container">
+<header>
+<h1>Happpppy Birthday, My Cutu Piliya 🤭!</h1>
+<p>The most wonderful girl in the whole wide world, and only mineeee! My Obsession, My Everything!</p>
+<div id="confetti-container"></div>
+</header>
 
-    <p class="caption">(Click on the picture betu 😋)</p>
-    <div class="hero-image-wrapper" id="heroImageWrapper">
-      <img src="pic.jpg" alt="Happy Birthday Jaan" class="hero-image"
-        onerror="this.onerror=null;this.src='https://placehold.co/900x630/ff69b4/ffffff?text=Happy+Birthday+Jaan';">
+<p class="caption">(Click on the picture betu 😋)</p>
+<div class="hero-image-wrapper" id="heroImageWrapper">
+<img src="pic.jpg" onerror="this.src='https://placehold.co/900x630/ff69b4/ffffff?text=Happy+Birthday+Jaan';" class="hero-image" alt="Happy Birthday Jaan">
+</div>
+
+<section class="message-section">
+<h2>Ek chhotu sa msg aapke liye Jaan...🫂</h2>
+<p>Hayee meli Piliyu, meli nanhi si jaan, Happy birthday! ❣️ Pata hai na, aap kitni special ho? It feels like bas kal hi ki baat hai jab hum mile the, aur tab se leke aaj tak, har ek din aapke saath ek jaadu jaisa hai. Aapki hassi, aapka gussa, aapka har andaaz... sab mera favorite hai. Meri life mein jitni khushi, jitna mazaa aur jitni roshni sb aap laaye ho, uski toh koi hadd hi nahi hai. I cherish every single moment we spend together, be it silly talks ya deep conversations.</p>
+<p>Aapko aise badhte hue, aur chamakte hue dekhna na, woh mera greatest pleasure hai. Aapki kindness, aapki strength, aapki cuteness, and aapki woh pyaari si smile – everything about you just makes me fall for you again and again, everyday. I'm so incredibly proud of the amazing person you're becoming. Sach me, aap meri life ka sabse khoobsurat chapter ho!</p>
+<p>May this year bring you all your dreams, new adventures, aur jitni khushiyaan aap deserve karti ho, usse bhi zyada. I literally cannot wait to make countless more, even crazier, memories with you. Meri jaan, I love you more than words can ever, ever say! Bas tum hamesha mere saath rehna, omikee? 😋</p>
+<p class="signature">With all my love and obsession,<br>Aapka Playa Sattu 🤭</p>
+</section>
+
+<p class="caption">(Click on the gift boxes to unwrap the memories!)</p>
+<div class="gifts-container">
+<h2>Some of Our Favorite Moments (Unwrap All 5!)</h2>
+<div class="gifts-row">
+<div class="gift-item">
+    <div class="gift-box" data-target="memories1">
+        <div class="gift-box-ribbon-vertical"></div>
+        <div class="gift-box-ribbon-horizontal"></div>
+        <div class="gift-box-bow"></div>
     </div>
-
-    <section class="message-section">
-      <h2>Ek chhotu sa msg aapke liye Jaan...🫂</h2>
-      <p>Hayee meli Piliyu, Happy birthday! ❣️ You’re my sunshine...</p>
-      <p class="signature">With all my love,<br>Aapka Playa Sattu 🤭</p>
-    </section>
-
-    <p class="caption">(Click on the gift boxes to unwrap the memories!)</p>
-
-    <!-- Fixed & improved gifts section -->
-    <div class="gifts-container">
-      <h2>Some of Our Favorite Moments (Unwrap All 5!)</h2>
-
-      <div class="gifts-row">
-        <!-- Gift 1 -->
-        <div class="gift-item">
-          <div class="gift-box" data-target="memories1">
-            <div class="gift-box-ribbon-vertical"></div>
-            <div class="gift-box-ribbon-horizontal"></div>
-            <div class="gift-box-bow"></div>
-          </div>
-          <div id="memories1" class="memory-group" data-type="slider">
-            <div class="slide"><img src="1.jpg" class="grid-img"></div>
-            <div class="slide"><img src="2.jpg" class="grid-img"></div>
-            <div class="slide"><img src="3.jpg" class="grid-img"></div>
-            <button class="prev">&#10094;</button><button class="next">&#10095;</button>
-          </div>
-        </div>
-
-        <!-- Gift 2 -->
-        <div class="gift-item">
-          <div class="gift-box" data-target="memories2">
-            <div class="gift-box-ribbon-vertical"></div>
-            <div class="gift-box-ribbon-horizontal"></div>
-            <div class="gift-box-bow"></div>
-          </div>
-          <div id="memories2" class="memory-group">
-            <img src="4.jpg" class="grid-img">
-          </div>
-        </div>
-
-        <!-- Gift 3 -->
-        <div class="gift-item">
-          <div class="gift-box" data-target="memories3">
-            <div class="gift-box-ribbon-vertical"></div>
-            <div class="gift-box-ribbon-horizontal"></div>
-            <div class="gift-box-bow"></div>
-          </div>
-          <div id="memories3" class="memory-group" data-type="slider">
-            <div class="slide"><img src="5.jpg" class="grid-img"></div>
-            <div class="slide"><img src="6.jpg" class="grid-img"></div>
-            <button class="prev">&#10094;</button><button class="next">&#10095;</button>
-          </div>
-        </div>
-
-        <!-- Gift 4 -->
-        <div class="gift-item">
-          <div class="gift-box" data-target="memories4">
-            <div class="gift-box-ribbon-vertical"></div>
-            <div class="gift-box-ribbon-horizontal"></div>
-            <div class="gift-box-bow"></div>
-          </div>
-          <div id="memories4" class="memory-group">
-            <img src="7.jpg" class="grid-img">
-          </div>
-        </div>
-
-        <!-- Gift 5 -->
-        <div class="gift-item">
-          <div class="gift-box" data-target="memories5">
-            <div class="gift-box-ribbon-vertical"></div>
-            <div class="gift-box-ribbon-horizontal"></div>
-            <div class="gift-box-bow"></div>
-          </div>
-          <div id="memories5" class="memory-group">
-            <img src="8.jpg" class="grid-img">
-          </div>
-        </div>
-      </div>
+    <div id="memories1" class="memory-group grid-3">
+        <img src="1.jpg" class="grid-img" alt="Memory 1">
+        <img src="2.jpg" class="grid-img" alt="Memory 2">
+        <img src="3.jpg" class="grid-img" alt="Memory 3">
     </div>
+</div>
+<div class="gift-item">
+    <div class="gift-box" data-target="memories2">
+        <div class="gift-box-ribbon-vertical"></div>
+        <div class="gift-box-ribbon-horizontal"></div>
+        <div class="gift-box-bow"></div>
+    </div>
+    <div id="memories2" class="memory-group grid-1">
+        <img src="4.jpg" class="grid-img" alt="Memory 4">
+    </div>
+</div>
+<div class="gift-item">
+    <div class="gift-box" data-target="memories3">
+        <div class="gift-box-ribbon-vertical"></div>
+        <div class="gift-box-ribbon-horizontal"></div>
+        <div class="gift-box-bow"></div>
+    </div>
+    <div id="memories3" class="memory-group grid-2">
+        <img src="5.jpg" class="grid-img" alt="Memory 5">
+        <img src="6.jpg" class="grid-img" alt="Memory 6">
+    </div>
+</div>
+<div class="gift-item">
+    <div class="gift-box" data-target="memories4">
+        <div class="gift-box-ribbon-vertical"></div>
+        <div class="gift-box-ribbon-horizontal"></div>
+        <div class="gift-box-bow"></div>
+    </div>
+    <div id="memories4" class="memory-group grid-1">
+        <img src="7.jpg" class="grid-img" alt="Memory 7">
+    </div>
+</div>
+<div class="gift-item">
+    <div class="gift-box" data-target="memories5">
+        <div class="gift-box-ribbon-vertical"></div>
+        <div class="gift-box-ribbon-horizontal"></div>
+        <div class="gift-box-bow"></div>
+    </div>
+    <div id="memories5" class="memory-group grid-1">
+        <img src="8.jpg" class="grid-img" alt="Memory 8">
+    </div>
+</div>
+</div>
+</div>
 
-    <section class="memories-section">
-      <h2>A Special Memory, Just For You...</h2>
-      <video controls poster="https://placehold.co/700x400/ffe6e6/d84a6c?text=Special+Video+Memory">
-        <source src="vid.mp4" type="video/mp4">
-      </video>
-    </section>
+<section class="memories-section">
+<h2>A Special Memory, Just For You...</h2>
+<p>Bacchu, remember this? Hihihihihi 🤭! One of our first most special memory 🙈🙈🙈🙈🙈🙈🙈🙈!</p>
+<video controls poster="https://placehold.co/700x400/ffe6e6/d84a6c?text=Special+Video+Memory">
+<source src="vid.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</section>
 
-    <footer>
-      <p>Made with endless love and a little bit of craziness, just for you. 🫂</p>
-    </footer>
-  </div>
+<p>I hope you have the most wonderful birthday ever! Meri Cutu Piliya ko bahot saara pyaar! 🥰</p>
+<footer><p>Made with endless love and a little bit of craziness, just for you. 🫂</p></footer>
+</div>
 
-  <!-- Modal -->
-  <div id="myModal" class="modal" style="display:none;position:fixed;z-index:100;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.8);">
-    <span class="close" style="position:absolute;top:15px;right:35px;color:white;font-size:40px;cursor:pointer;">&times;</span>
-    <img class="modal-content" id="img01" style="max-width:90%;max-height:90%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:10px;">
-  </div>
+<div id="myModal" class="modal">
+<span class="close">&times;</span>
+<img class="modal-content" id="img01">
+<a class="prev">&#10094;</a>
+<a class="next">&#10095;</a>
+</div>
 
-  <script>
-    // Confetti
-    function createConfetti() {
-      const container = document.getElementById('confetti-container');
-      const colors = ['#fce4ec', '#f8bbd0', '#f48fb1', '#ec407a', '#d81b60'];
-      for (let i = 0; i < 50; i++) {
-        const confetti = document.createElement('div');
-        confetti.classList.add('confetti-piece');
-        confetti.style.left = Math.random() * 100 + 'vw';
-        confetti.style.top = Math.random() * -200 + 'px';
-        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        confetti.style.animationDelay = Math.random() * 2 + 's';
-        confetti.style.transform = `scale(${0.5 + Math.random()})`;
-        container.appendChild(confetti);
-      }
-    }
-    createConfetti();
+<script>
+// Confetti
+function createConfetti(){
+ const container=document.getElementById('confetti-container');
+ const colors=['#fce4ec','#f8bbd0','#f48fb1','#ec407a','#d81b60'];
+ for(let i=0;i<50;i++){
+  const confetti=document.createElement('div');
+  confetti.classList.add('confetti-piece');
+  confetti.style.left=Math.random()*100+'vw';
+  confetti.style.top=Math.random()*-200+'px';
+  confetti.style.backgroundColor=colors[Math.floor(Math.random()*colors.length)];
+  confetti.style.animationDelay=Math.random()*2+'s';
+  container.appendChild(confetti);
+ }
+}
+createConfetti();
 
-    // Modal setup
-    const modal = document.getElementById("myModal");
-    const modalImg = document.getElementById("img01");
-    const closeBtn = document.querySelector(".close");
+// Modal with next/prev
+const modal=document.getElementById("myModal");
+const modalImg=document.getElementById("img01");
+const closeBtn=document.getElementsByClassName("close")[0];
+const prevBtn=document.querySelector(".prev");
+const nextBtn=document.querySelector(".next");
+let currentImages=[],currentIndex=0;
 
-    closeBtn.onclick = () => modal.style.display = "none";
-    modal.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+function openModal(images,index){
+ modal.style.display="block";
+ currentImages=images;
+ currentIndex=index;
+ modalImg.src=currentImages[currentIndex].src;
+}
+function showImage(offset){
+ currentIndex=(currentIndex+offset+currentImages.length)%currentImages.length;
+ modalImg.src=currentImages[currentIndex].src;
+}
+closeBtn.onclick=()=>modal.style.display="none";
+modal.onclick=(e)=>{if(e.target===modal)modal.style.display="none";};
+prevBtn.onclick=()=>showImage(-1);
+nextBtn.onclick=()=>showImage(1);
 
-    function attachModalListeners(elements) {
-      elements.forEach(img => {
-        img.addEventListener('click', function() {
-          modal.style.display = "block";
-          modalImg.src = this.src;
-        });
-      });
-    }
+// Gift boxes
+document.querySelectorAll('.gift-box').forEach(box=>{
+ let opened=false;
+ box.addEventListener('click',()=>{
+  const targetId=box.getAttribute('data-target');
+  const group=document.getElementById(targetId);
+  if(!opened){
+   box.style.opacity='0';
+   setTimeout(()=>{ box.style.display='none'; group.classList.add('active'); },400);
+   opened=true;
+  }
+ });
+});
 
-    // Gift Boxes
-    const giftBoxes = document.querySelectorAll('.gift-box');
-    giftBoxes.forEach(box => {
-      let opened = false;
-      box.addEventListener('click', function() {
-        const id = this.dataset.target;
-        const group = document.getElementById(id);
-        if (!opened) {
-          this.style.transition = 'transform 0.5s, opacity 0.5s';
-          this.style.transform = 'translateY(-10px) scale(0.9)';
-          this.style.opacity = '0';
-          setTimeout(() => {
-            this.style.display = 'none';
-            group.classList.add('active');
-            initializeSlider(group);
-            attachModalListeners(group.querySelectorAll('.grid-img'));
-          }, 500);
-          opened = true;
-        }
-      });
-    });
-
-    function initializeSlider(group) {
-      if (group.dataset.type !== 'slider') return;
-      const slides = group.querySelectorAll('.slide');
-      const prev = group.querySelector('.prev');
-      const next = group.querySelector('.next');
-      let index = 0;
-      const showSlide = (n) => slides.forEach((s, i) => s.classList.toggle('active', i === n));
-      showSlide(index);
-      prev.onclick = () => { index = (index - 1 + slides.length) % slides.length; showSlide(index); };
-      next.onclick = () => { index = (index + 1) % slides.length; showSlide(index); };
-    }
-
-    // Hero Image Click
-    document.getElementById('heroImageWrapper').addEventListener('click', function() {
-      modal.style.display = "block";
-      modalImg.src = this.querySelector('.hero-image').src;
-    });
-  </script>
+// Images modal logic
+document.querySelectorAll('.memory-group').forEach(group=>{
+ const imgs=group.querySelectorAll('.grid-img');
+ imgs.forEach((img,index)=>{
+  img.addEventListener('click',()=>openModal(imgs,index));
+ });
+});
+document.getElementById('heroImageWrapper').addEventListener('click',()=>{
+ modal.style.display="block";
+ modalImg.src=document.querySelector('.hero-image').src;
+ prevBtn.style.display='none';
+ nextBtn.style.display='none';
+});
+</script>
 </body>
 </html>
